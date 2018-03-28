@@ -15,11 +15,19 @@ g = 9.8; %m/s gravity
 
 %-------Motor Parameteres------
 
-R = 3 %Ohm
-L = 0.5 %H
-b = .1 %N.m.s
-J = 0.01 %kg.m^2
-K = 0.01% V/rad/sec
+R = 3; %electric resistance (Ohm)
+L = 0.5; % electric inductance (H)
+b = .1; % motor viscous friction constant (N.m.s)
+J = 0.01; % moment of inertia of the rotor (kg.m^2)
+K = .01; % electromotive force constant / motor torque constant (RPM/V)
+
+%Constants for thrust equation
+
+pitch = 7; %inches
+d = 20; %propeller diameter
+v0 = 0; %airspeed in Z
+x1 = 4.392399*10^-8;
+x2 = 4.23333*10^-4;
 
 %-----------------------------
 
