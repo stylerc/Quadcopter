@@ -11,7 +11,15 @@ g = 9.8; %m/s gravity
 % pitch angle (?) rotation around the y axis.
 % yaw angle (?) rotation around the z axis.
 
-vrot_i is rotor angular velocity, 1-4
+%vrot_i is rotor angular velocity, 1-4
 
+%-------Motor Parameteres------
 
+R = 3 %Ohm
+L = 0.5 %H
+b = .1 %N.m.s
+J = 0.01 %kg.m^2
+K = 0.01% V/rad/sec
+
+%-----------------------------
 
