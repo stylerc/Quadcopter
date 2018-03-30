@@ -15,11 +15,11 @@ g = 9.8; %m/s gravity
 
 %-------Motor Parameteres------
 
-R = 3; %electric resistance (Ohm)
-L = 0.5; % electric inductance (H)
-b = .1; % motor viscous friction constant (N.m.s)
-J = 0.01; % moment of inertia of the rotor (kg.m^2)
-K = .01; % electromotive force constant / motor torque constant (RPM/V)
+R = 0.0005; %electric resistance (Ohm)
+L = 0.0003 % electric inductance (H)
+b = 0.0009; % motor viscous friction constant (N.m.s)
+J = 0.0008; % moment of inertia of the rotor (kg.m^2)
+K = 0.001; % electromotive force constant / motor torque constant (RPM/V)
 
 %Constants for thrust equation
 
