@@ -1,8 +1,10 @@
 % From feasibility report
 
+
 %----- Physical Parameters -----
 % frame is X shaped, symmetrical
 
+% Reference: F3-DP-2017-Gopalakrishnan-Eswarmurthi-Master Thesis.pdf
 % x is forward
 % y is to the left
 % z is upward
