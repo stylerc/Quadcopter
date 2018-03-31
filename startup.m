@@ -13,12 +13,9 @@
 % pitch angle (?) rotation around the y axis.
 % yaw angle (?) rotation around the z axis.
 
-m = 3.65; %kg, quadcopter mass
-wb = 0.6; %m, quadcopter wheelbase
-
 %----- Motor Parameteres -----
 R = 0.0005; %electric resistance (Ohm)
-L = 0.0003 % electric inductance (H)
+L = 0.0003; % electric inductance (H)
 b = 0.0009; % motor viscous friction constant (N.m.s)
 J = 0.0008; % moment of inertia of the rotor (kg.m^2)
 K = 0.001; % electromotive force constant / motor torque constant (RPM/V)
@@ -34,6 +31,7 @@ x2 = 4.23333*10^-4;
 % Altitude Loop
 Kp_alt = 1;
 Ki_alt = 1;
+
 Kd_alt = 0;
 
 % Pitch Loop
@@ -54,3 +52,27 @@ Kd_yaw = 0;
 
 %---- Simulation Constants -----
 g = 9.8; %m/s gravity
+m = 3.65; %kg, quadcopter mass
+wb = 0.6; %m, quadcopter wheelbase
+
+%----- Initial Conditions -----
+xinitial=0;
+yinitial=0;
+zinitial=-10;
+phiinitial=0;
+thetainitial=0;
+psiinitial=0;
+
+xvelinitial=0;
+yvelinitial=0;
+zvelinitial=0;
+phivelinitial=0;
+thetavelinitial=0;
+psivelinitial=0;
+
+xaccinitial=0;
+yaccinitial=0;
+zaccinitial=0;
+phiaccinitial=0;
+thetaaccinitial=0;
+psiaccinitial=0;
