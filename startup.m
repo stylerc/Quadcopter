@@ -15,11 +15,12 @@
 
 %----- Motor Parameteres -----
 V_bat = 44.4; %battery voltage (V) 
-R = 0.0005; %electric resistance (Ohm), .0005
-L = 0.0003; % electric inductance (H)
-b = 0.0009; % motor viscous friction constant (N.m.s)
-J = 0.0008; % moment of inertia of the rotor (kg.m^2)
-K = 0.001; % electromotive force constant / motor torque constant (RPM/V), .001
+R = 0.000230; %electric resistance (Ohm), .0005
+L = 0.000224; % electric inductance (H)
+b = 0.0015; % motor viscous friction constant (N.m.s)
+J = 0.00007; % moment of inertia of the rotor (kg.m^2)
+Ke = 0.001; % electromotive force constant 
+Kt = 0.001;    % motor torque constant 
 idle = 0; % idle motors to reduce initial "slack"
 
 %Constants for thrust equation
