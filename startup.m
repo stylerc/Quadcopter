@@ -31,8 +31,7 @@ x2 = 4.23333*10^-4;
 %----- Controller Tuning
 % Altitude Loop
 Kp_alt = 1;
-Ki_alt = 1;
-
+Ki_alt = 0;
 Kd_alt = 0;
 
 % Pitch Loop
@@ -59,7 +58,7 @@ wb = 0.6; %m, quadcopter wheelbase
 %----- Initial Conditions -----
 xinitial=0;
 yinitial=0;
-zinitial=-10;
+zinitial=0;
 phiinitial=0;
 thetainitial=0;
 psiinitial=0;
