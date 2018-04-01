@@ -14,6 +14,7 @@
 % yaw angle (?) rotation around the z axis.
 
 %----- Motor Parameteres -----
+V_bat = 44.4; %battery voltage (V) 
 R = 0.0005; %electric resistance (Ohm)
 L = 0.0003; % electric inductance (H)
 b = 0.0009; % motor viscous friction constant (N.m.s)
