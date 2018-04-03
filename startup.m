@@ -16,7 +16,7 @@
 %----- Initial Conditions -----
 xinitial=0;
 yinitial=0;
-zinitial=0;
+zinitial=10;
 phiinitial=0;
 thetainitial=0;
 psiinitial=0;
