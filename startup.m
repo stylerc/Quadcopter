@@ -1,5 +1,6 @@
 % From feasibility report
 
+interval=.01;
 
 %----- Physical Parameters -----
 % frame is X shaped, symmetrical
@@ -16,7 +17,7 @@
 %----- Initial Conditions -----
 xinitial=0;
 yinitial=0;
-zinitial=10;
+zinitial=50;
 phiinitial=0;
 thetainitial=0;
 psiinitial=0;
