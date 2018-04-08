@@ -8,3 +8,9 @@ cdrag = 1.3; %coeff of drag
 aetop=.8494; %effective area of top of qc
 aeside=aetop/10; %effective area of side of qc
 aefront=aetop/10;  %effective area of front of qc
+
+
+%------------- K filter constants ------------
+
+KfilterR=.1;
+KfilterQ=.0001;
