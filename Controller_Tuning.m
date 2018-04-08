@@ -1,8 +1,8 @@
 %----- Controller Tuning
 % Altitude Loop
-Kp_alt = 1;
-Ki_alt = 0;
-Kd_alt = 0;
+Kp_alt = 20;
+Ki_alt = 10;
+Kd_alt = 10;
 
 % Pitch Loop
 Kp_pitch = 1;
@@ -15,6 +15,6 @@ Ki_roll = 1;
 Kd_roll = 0;
 
 % Yaw Loop
-Kp_yaw = 1;
+Kp_yaw = 1000;
 Ki_yaw = 1;
 Kd_yaw = 0;
