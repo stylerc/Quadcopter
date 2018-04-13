@@ -5,8 +5,8 @@ Cen_pos = cell2mat(struct2cell(load('quad_pos.mat')));
 Cen_pos = Cen_pos';
 wb = .6;
 
-%     mov = VideoWriter('test.avi');
-%     open(mov);
+    mov = VideoWriter('test.avi');
+    open(mov);
 
     max_t = [max(Cen_pos(:,8));
              max(Cen_pos(:,9));
@@ -18,7 +18,7 @@ wb = .6;
     figure('Name','Quadcopter Flight Path')
     hold on; 
 
-    for i = 2:10 %length(Cen_pos)
+    for i = 2:5:length(Cen_pos)
         
        %--------------Rotation--------- 
            R_roll = sym([1 0 0 0; 
@@ -133,7 +133,7 @@ wb = .6;
        
         hold off
             view(-20,45)
-            axis([-2 2 -2 2 30 70])
+            axis([-3 3 -3 3 40 80])
             grid on;
             title('Quadcopter Model (World Frame)')
             xlabel('X Dist (m)')
@@ -143,7 +143,7 @@ wb = .6;
        d = 0;
        for d = 1:1  % playback "speed"
          currFrame = getframe;
-       %  writeVideo(mov,currFrame);
+         %writeVideo(mov,currFrame);
          d = d+1;
        end
     end
