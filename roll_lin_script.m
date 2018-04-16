@@ -1,4 +1,4 @@
-%EVERYTHING IN HERE IS FINAL (unless we want to change it)
+%%% THIS APPLIES TO ROLL & PITCH AXES %%%
 
 roll_lin_tf = tf([3.1646],[1 0 0]); %from Simulink Linear Analysis tool
 roll_lin_ss = ss(roll_lin_tf);
