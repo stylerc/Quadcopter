@@ -17,7 +17,7 @@ interval=.01;
 %----- Initial Conditions -----
 xinitial=0;
 yinitial=0;
-zinitial=50;
+zinitial=0;
 phiinitial=0;
 thetainitial=0;
 psiinitial=0;
