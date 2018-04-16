@@ -19,7 +19,7 @@ t = 0:0.01:5;
 figure(1)
 step(stepMag*T,t); %plot closed loop step response
 ylabel('roll angle (rad)');
-title('Closed-loop Step Response');
+title('Roll Axis, Step Response with PID Control');
 grid
 stepinfo(stepMag*T) %handy step response stats
 
@@ -55,14 +55,14 @@ sys_cl = ss(Ac,Bc,Cc,Dc);%,'statename',states,'inputname',inputs,'outputname',ou
 figure(3)
 step(stepMag*Nbar*sys_cl,t)
 ylabel('roll angle (rad)');
-title('Step Response with LQR Control')
+title('Roll Axis, Step Response with LQR Control')
 stepinfo(stepMag*Nbar*sys_cl) %handy step response stats
 grid
 
 figure(4)
 step(stepMag*T,stepMag*Nbar*sys_cl,t)
 ylabel('roll angle (rad)');
-title('PID vs LQR Step Response')
+title('Roll Axis, PID vs LQR Step Response')
 legend('PID','LQR')
 grid
 
