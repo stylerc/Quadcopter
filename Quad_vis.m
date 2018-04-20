@@ -4,6 +4,7 @@ function quad_vis
 Cen_pos = cell2mat(struct2cell(load('quad_pos.mat')));
 Cen_pos = Cen_pos';
 wb = .6;
+%can you do blue from 0-8.8, green from 8.8-9.1 and red over that?
 
     mov = VideoWriter('test.avi');
     open(mov);
@@ -13,12 +14,12 @@ wb = .6;
              max(Cen_pos(:,10));
              max(Cen_pos(:,11));];
          
-    max_t = max(max_t)/4;
+    max_t = max(max_t)/10;
 
     figure('Name','Quadcopter Flight Path')
     hold on; 
 
-    for i = 2:5:length(Cen_pos)
+    for i = 2:7:length(Cen_pos)
         
        %--------------Rotation--------- 
            R_roll = sym([1 0 0 0; 
@@ -119,17 +120,21 @@ wb = .6;
        plot3([Cen_pos(i,2) M3_pos(1)],[Cen_pos(i,3) M3_pos(2)],[Cen_pos(i,4) M3_pos(3)],'g-')
        plot3([Cen_pos(i,2) M4_pos(1)],[Cen_pos(i,3) M4_pos(2)],[Cen_pos(i,4) M4_pos(3)],'k-')
        
+       
+       %vector and arrow colors
+       [c1,p1,c2,p2,c3,p3,c4,p4] = t_color(Cen_pos(i,8),Cen_pos(i,9),Cen_pos(i,10),Cen_pos(i,11));
+       
        %plot Motor thrust vectors
-       plot3([M1_pos(1) M1_t_pos(1)],[M1_pos(2) M1_t_pos(2)],[M1_pos(3) M1_t_pos(3)],'r-')
-       plot3([M2_pos(1) M2_t_pos(1)],[M2_pos(2) M2_t_pos(2)],[M2_pos(3) M2_t_pos(3)],'r-')
-       plot3([M3_pos(1) M3_t_pos(1)],[M3_pos(2) M3_t_pos(2)],[M3_pos(3) M3_t_pos(3)],'r-')
-       plot3([M4_pos(1) M4_t_pos(1)],[M4_pos(2) M4_t_pos(2)],[M4_pos(3) M4_t_pos(3)],'r-')
+       plot3([M1_pos(1) M1_t_pos(1)],[M1_pos(2) M1_t_pos(2)],[M1_pos(3) M1_t_pos(3)],c1)
+       plot3([M2_pos(1) M2_t_pos(1)],[M2_pos(2) M2_t_pos(2)],[M2_pos(3) M2_t_pos(3)],c2)
+       plot3([M3_pos(1) M3_t_pos(1)],[M3_pos(2) M3_t_pos(2)],[M3_pos(3) M3_t_pos(3)],c3)
+       plot3([M4_pos(1) M4_t_pos(1)],[M4_pos(2) M4_t_pos(2)],[M4_pos(3) M4_t_pos(3)],c4)
        
        %plot thurst arrows
-       plot3([M1_t_pos(1)],[M1_t_pos(2)],[M1_t_pos(3)],'r^','MarkerSize',5)
-       plot3([M2_t_pos(1)],[M2_t_pos(2)],[M2_t_pos(3)],'r^','MarkerSize',5)
-       plot3([M3_t_pos(1)],[M3_t_pos(2)],[M3_t_pos(3)],'r^','MarkerSize',5)
-       plot3([M4_t_pos(1)],[M4_t_pos(2)],[M4_t_pos(3)],'r^','MarkerSize',5)
+       plot3([M1_t_pos(1)],[M1_t_pos(2)],[M1_t_pos(3)],p1,'MarkerSize',5)
+       plot3([M2_t_pos(1)],[M2_t_pos(2)],[M2_t_pos(3)],p2,'MarkerSize',5)
+       plot3([M3_t_pos(1)],[M3_t_pos(2)],[M3_t_pos(3)],p3,'MarkerSize',5)
+       plot3([M4_t_pos(1)],[M4_t_pos(2)],[M4_t_pos(3)],p4,'MarkerSize',5)
        
         hold off
             view(-20,45)
@@ -147,4 +152,65 @@ wb = .6;
          d = d+1;
        end
     end
+end
+
+function [c1,p1,c2,p2,c3,p3,c4,p4] = t_color(T1,T2,T3,T4)
+hover_min = 8.8;
+hover_max = 9.1;
+
+   %Motor 1
+       if T1<hover_min
+           c1 = 'b-';
+           p1 = 'b^';
+       end
+       if (hover_min <= T1) &&  (T1<= hover_max)
+           c1 = 'g-';
+           p1 = 'g^';
+       end
+       if  (T1>hover_max)
+           c1 = 'r-';
+           p1 = 'r^';  
+       end
+
+   %Motor 2
+       if T2<hover_min
+           c2 = 'b-';
+           p2 = 'b^';
+       end
+       if (hover_min <= T2) &&  (T2<= hover_max)
+           c2 = 'g-';
+           p2 = 'g^';
+       end
+       if  (T2>hover_max)
+           c2 = 'r-';
+           p2 = 'r^';  
+       end       
+       
+   %Motor 3
+       if T3<hover_min
+           c3 = 'b-';
+           p3 = 'b^';
+       end
+       if (hover_min <= T3) &&  (T3<= hover_max)
+           c3 = 'g-';
+           p3 = 'g^';
+       end
+       if  (T3>hover_max)
+           c3 = 'r-';
+           p3 = 'r^';  
+       end       
+
+  %Motor 4
+       if T4<hover_min
+           c4 = 'b-';
+           p4 = 'b^';
+       end
+       if (hover_min <= T4) &&  (T4<= hover_max)
+           c4 = 'g-';
+           p4 = 'g^';
+       end
+       if  (T4>hover_max)
+           c4 = 'r-';
+           p4 = 'r^';  
+       end              
 end
