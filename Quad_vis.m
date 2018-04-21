@@ -1,10 +1,9 @@
 function quad_vis
 
-%[t,x,y,z,yaw,roll,pitch,M1_t,M2_t,M3_t,M4_t] 
+%[t,x,y,z,roll,pitch,yaw,M1_t,M2_t,M3_t,M4_t] 
 Cen_pos = cell2mat(struct2cell(load('quad_pos.mat')));
 Cen_pos = Cen_pos';
 wb = .6;
-%can you do blue from 0-8.8, green from 8.8-9.1 and red over that?
 
     mov = VideoWriter('test.avi');
     open(mov);
@@ -19,21 +18,21 @@ wb = .6;
     figure('Name','Quadcopter Flight Path')
     hold on; 
 
-    for i = 2:7:length(Cen_pos)
+    for i = 2:6:length(Cen_pos)  % check number of loops before saving video
         
        %--------------Rotation--------- 
            R_roll = sym([1 0 0 0; 
-                         0 cos(Cen_pos(i,6)) -sin(Cen_pos(i,6)) 0; 
-                    0 sin(Cen_pos(i,6)) cos(Cen_pos(i,6)) 0; 
+                         0 cos(Cen_pos(i,5)) -sin(Cen_pos(i,5)) 0; 
+                    0 sin(Cen_pos(i,5)) cos(Cen_pos(i,5)) 0; 
                     0 0 0 1]);
 
-           R_pitch = sym([cos(Cen_pos(i,7)) 0 sin(Cen_pos(i,7)) 0;
+           R_pitch = sym([cos(Cen_pos(i,6)) 0 sin(Cen_pos(i,6)) 0;
                       0 1 0 0;
-                      -sin(Cen_pos(i,7)) 0 cos(Cen_pos(i,7)) 0;
+                      -sin(Cen_pos(i,6)) 0 cos(Cen_pos(i,6)) 0;
                       0 0 0 1]);
 
-           R_yaw = sym([cos(Cen_pos(i,5)) -sin(Cen_pos(i,5)) 0 0; 
-                    sin(Cen_pos(i,5))  cos(Cen_pos(i,5)) 0 0; 
+           R_yaw = sym([cos(Cen_pos(i,7)) -sin(Cen_pos(i,7)) 0 0; 
+                    sin(Cen_pos(i,7))  cos(Cen_pos(i,7)) 0 0; 
                     0 0 1 0; 
                     0 0 0 1]);
 
@@ -50,18 +49,17 @@ wb = .6;
             M1_pos = [(Cen_pos(i,2)+(M1_trans(1,4))),...
                       (Cen_pos(i,3)+(M1_trans(2,4))),...
                       (Cen_pos(i,4)+(M1_trans(3,4)))];
-                  
-                         
+            
+            
             M1_t_pos = [M1_pos(1)+0,...
                         M1_pos(2)+0,...
                         M1_pos(3)+(Cen_pos(i,8)/max_t)];
-            
        %----------------------- 
 
        
        %----------Motor 2 Translation---------
              M2_trans = Rot*[1 0 0 0; 
-                             0 1 0 wb; 
+                             0 1 0 -wb; 
                              0 0 1 0; 
                              0 0 0 1];
 
@@ -94,7 +92,7 @@ wb = .6;
        
        %----------Motor 4 Translation---------
              M4_trans = Rot*[1 0 0 0; 
-                             0 1 0 -wb; 
+                             0 1 0 wb; 
                              0 0 1 0; 
                              0 0 0 1];
 
@@ -136,9 +134,9 @@ wb = .6;
        plot3([M3_t_pos(1)],[M3_t_pos(2)],[M3_t_pos(3)],p3,'MarkerSize',5)
        plot3([M4_t_pos(1)],[M4_t_pos(2)],[M4_t_pos(3)],p4,'MarkerSize',5)
        
-        hold off
-            view(-20,45)
-            axis([-3 3 -3 3 40 80])
+        %hold off
+            view(90,0)
+            axis([-3 3 -3 3 17 23])
             grid on;
             title('Quadcopter Model (World Frame)')
             xlabel('X Dist (m)')
@@ -148,7 +146,7 @@ wb = .6;
        d = 0;
        for d = 1:1  % playback "speed"
          currFrame = getframe;
-         %writeVideo(mov,currFrame);
+         %writeVideo(mov,currFrame);  %uncomment to save video file
          d = d+1;
        end
     end
