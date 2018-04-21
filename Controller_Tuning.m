@@ -16,6 +16,6 @@ Ki_pitch = 0.20242;
 Kd_pitch = 1.2268;
 
 % Yaw Loop
-Kp_yaw = 1;
-Ki_yaw = 0;
-Kd_yaw = 0;
+Kp_yaw = 3969499.29287214;
+Ki_yaw = 719645.642029045;
+Kd_yaw = 5376455.39092611;
