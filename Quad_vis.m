@@ -44,16 +44,20 @@ wb = .6;
                              0 1 0 0; 
                              0 0 1 0; 
                              0 0 0 1];
+                         
+            M1_t_trans= Rot*[1 0 0 wb;
+                             0 1 0 0;
+                             0 0 1 Cen_pos(i,8)/max_t;
+                             0 0 0 1];                           
 
                     %X,Y,Z
             M1_pos = [(Cen_pos(i,2)+(M1_trans(1,4))),...
                       (Cen_pos(i,3)+(M1_trans(2,4))),...
                       (Cen_pos(i,4)+(M1_trans(3,4)))];
-            
-            
-            M1_t_pos = [M1_pos(1)+0,...
-                        M1_pos(2)+0,...
-                        M1_pos(3)+(Cen_pos(i,8)/max_t)];
+                    
+            M1_t_pos = [(Cen_pos(i,2)+(M1_t_trans(1,4))),...
+                        (Cen_pos(i,3)+(M1_t_trans(2,4))),...
+                        (Cen_pos(i,4)+(M1_t_trans(3,4)))];                 
        %----------------------- 
 
        
@@ -63,14 +67,19 @@ wb = .6;
                              0 0 1 0; 
                              0 0 0 1];
 
+            M2_t_trans= Rot*[1 0 0 0;
+                             0 1 0 -wb;
+                             0 0 1 Cen_pos(i,9)/max_t;
+                             0 0 0 1];                           
+
                     %X,Y,Z
             M2_pos = [(Cen_pos(i,2)+(M2_trans(1,4))),...
                       (Cen_pos(i,3)+(M2_trans(2,4))),...
                       (Cen_pos(i,4)+(M2_trans(3,4)))];
-                  
-            M2_t_pos = [M2_pos(1)+0,...
-                        M2_pos(2)+0,...
-                        M2_pos(3)+(Cen_pos(i,9)/max_t)];
+                    
+            M2_t_pos = [(Cen_pos(i,2)+(M2_t_trans(1,4))),...
+                        (Cen_pos(i,3)+(M2_t_trans(2,4))),...
+                        (Cen_pos(i,4)+(M2_t_trans(3,4)))];        
        %----------------------- 
                
        
@@ -80,14 +89,19 @@ wb = .6;
                              0 0 1 0; 
                              0 0 0 1];
 
+            M3_t_trans= Rot*[1 0 0 -wb;
+                             0 1 0 0;
+                             0 0 1 Cen_pos(i,10)/max_t;
+                             0 0 0 1];                           
+
                     %X,Y,Z
             M3_pos = [(Cen_pos(i,2)+(M3_trans(1,4))),...
                       (Cen_pos(i,3)+(M3_trans(2,4))),...
                       (Cen_pos(i,4)+(M3_trans(3,4)))];
-                  
-            M3_t_pos = [M3_pos(1)+0,...
-                        M3_pos(2)+0,...
-                        M3_pos(3)+(Cen_pos(i,10)/max_t)];
+                    
+            M3_t_pos = [(Cen_pos(i,2)+(M3_t_trans(1,4))),...
+                        (Cen_pos(i,3)+(M3_t_trans(2,4))),...
+                        (Cen_pos(i,4)+(M3_t_trans(3,4)))];   
        %-----------------------        
        
        %----------Motor 4 Translation---------
@@ -96,14 +110,19 @@ wb = .6;
                              0 0 1 0; 
                              0 0 0 1];
 
+            M4_t_trans= Rot*[1 0 0 0;
+                             0 1 0 wb;
+                             0 0 1 Cen_pos(i,11)/max_t;
+                             0 0 0 1];                           
+
                     %X,Y,Z
             M4_pos = [(Cen_pos(i,2)+(M4_trans(1,4))),...
                       (Cen_pos(i,3)+(M4_trans(2,4))),...
                       (Cen_pos(i,4)+(M4_trans(3,4)))];
-                  
-            M4_t_pos = [M4_pos(1)+0,...
-                        M4_pos(2)+0,...
-                        M4_pos(3)+(Cen_pos(i,11)/max_t)];
+                    
+            M4_t_pos = [(Cen_pos(i,2)+(M4_t_trans(1,4))),...
+                        (Cen_pos(i,3)+(M4_t_trans(2,4))),...
+                        (Cen_pos(i,4)+(M4_t_trans(3,4)))];   
        %-----------------------          
        
        clf;
