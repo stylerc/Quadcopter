@@ -154,8 +154,8 @@ wb = .6;
        plot3([M4_t_pos(1)],[M4_t_pos(2)],[M4_t_pos(3)],p4,'MarkerSize',5)
        
         %hold off
-            view(90,0)
-            axis([-3 3 -3 3 17 23])
+            view(-25,45)
+            axis([-3 3 -3 3 0 12])
             grid on;
             title('Quadcopter Model (World Frame)')
             xlabel('X Dist (m)')
