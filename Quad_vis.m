@@ -1,11 +1,13 @@
 function quad_vis
 
+%%% To modify view go to lines 159, 160. to record go to line 170
+
 %[t,x,y,z,roll,pitch,yaw,M1_t,M2_t,M3_t,M4_t] 
 Cen_pos = cell2mat(struct2cell(load('quad_pos.mat')));
 Cen_pos = Cen_pos';
 wb = .6;
 
-    mov = VideoWriter('test.avi');
+    mov = VideoWriter('QC_Visual.avi');
     open(mov);
 
     max_t = [max(Cen_pos(:,8));
@@ -154,8 +156,8 @@ wb = .6;
        plot3([M4_t_pos(1)],[M4_t_pos(2)],[M4_t_pos(3)],p4,'MarkerSize',5)
        
         %hold off
-            view(-25,45)
-            axis([-3 3 -3 3 0 12])
+            view(-25,45)            %modify this to change video view
+            axis([-3 3 -3 3 0 12])  %modify this to change video axis
             grid on;
             title('Quadcopter Model (World Frame)')
             xlabel('X Dist (m)')
@@ -164,7 +166,7 @@ wb = .6;
             
        d = 0;
        for d = 1:1  % playback "speed"
-         currFrame = getframe;
+         currFrame = getframe(gcf);
          %writeVideo(mov,currFrame);  %uncomment to save video file
          d = d+1;
        end
